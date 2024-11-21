@@ -1,0 +1,137 @@
+@font-face{
+        font-family: TildaSans;
+        src: url(fonts/TildaSans-Regular.woff);
+}
+
+@font-face{
+        font-family: TildaSans;
+        src: url(fonts/TildaSans-Bold.woff);
+        font-weight: bold;
+}
+
+body{
+    background-color: #000000;
+}
+
+/* Borders */
+#border-left, #border-right{
+    background: linear-gradient(to right,red, orange, yellow, green, blue, #9500ff, violet, red);
+    background-size: 1100% 1100%;
+    animation: gradient-cycle 10s linear infinite;
+    filter: blur(100px);
+    opacity: 10%;
+    transition: opacity 0.1s;
+    position: fixed;
+    top:0;
+    bottom:0;
+    width:2%;
+}
+#border-left {
+    left:0;
+}
+#border-right {
+    right:0;
+}
+/* Borders */
+
+#maintext{
+    font-family: TildaSans;
+    font-size: 300%;
+}
+
+.btn{
+    padding: 2%;
+    background-color: #5f5f5f00;
+    border: 1px solid #8f8f8f9f;
+    box-shadow: inset 0 0 50px #8f8f8f55;
+    color: #8f8f8f;
+    cursor: pointer;
+    font-size: 4vmin;
+    height: 10vw;
+
+    transition: 1s;
+}
+
+.btn:hover{
+    height: 11vw;
+    border-color: #8f8f8f;
+    box-shadow: inset 0 0 50px #ffffff55;
+}
+
+#color-beam-start{
+    position: absolute;
+    transition: 1s;
+}
+
+#maingrid{
+    width: 33%;
+    display: grid;
+    gap: 5%;
+    margin: 2%;
+}
+
+#color{
+    width: 20%;
+    height: 20%;
+    position: fixed;
+    background: linear-gradient(to right,red, orange, yellow, green, blue, #9500ff, violet, red);
+    background-size: 1100% 1100%;
+    border-radius: 100px;
+    filter: blur(100px);
+    animation: rotate 10s linear infinite, gradient-cycle 10s linear infinite;
+    opacity: 25%;
+    transition: width 1s, height 1s, opacity 0.5s;
+    pointer-events: none;
+    z-index: -50;
+}
+
+#color-beam{
+    background: linear-gradient(to right,red, orange, yellow, green, blue, #9500ff, violet, red);
+    background-size: 1100% 1100%;
+    animation: gradient-cycle 10s linear infinite;
+    filter: blur(70px);
+    height: 2%;
+    opacity: 100%;
+    transform-origin: top left;
+    position: fixed;
+    z-index: -50;
+}
+
+#maintext{
+    color:#8f8f8fcc;
+    cursor: default;
+    position: relative;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes gradient-cycle {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+@media only screen and (max-aspect-ratio: 1/1) {
+    #maingrid {
+        width: 100%;
+        margin: 0%;
+        gap: 0%;
+    }
+    .btn {
+        height: 10vh;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .btn{
+        grid-column: 1 !important;
+        font-size: 4vmax;
+    }
+}
